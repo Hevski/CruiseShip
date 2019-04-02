@@ -1,5 +1,7 @@
 package com.codeclan.example.passengerservice.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ public class Passenger {
     @Column(name = "age")
     private int age;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "passengers_parties",
@@ -38,7 +41,7 @@ public class Passenger {
     private List<Party> parties;
 
     @ManyToOne
-    @JoinColumn(name = "cruise_ship_id", nullable = false)
+    @JoinColumn(name = "cruiseShip_id", nullable = false)
     private CruiseShip cruiseShip;
 
     public Passenger(String firstName, String surname, int age, CruiseShip cruiseShip) {
@@ -103,6 +106,8 @@ public class Passenger {
     public void addParty(Party party){
         this.parties.add(party);
     }
+
+
 
 
 }

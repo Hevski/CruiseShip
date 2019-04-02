@@ -19,7 +19,7 @@ public class CruiseShip {
 
     @JsonIgnoreProperties("cruiseShip")
     @OneToMany(mappedBy = "cruiseShip")
-    private List<Passenger>passengers;
+    private List<Passenger> passengers;
 
     public CruiseShip(String name) {
         this.name = name;
@@ -56,5 +56,4 @@ public class CruiseShip {
     public void addPassenger(Passenger passenger){
         this.passengers.add(passenger);
     }
-
 }
